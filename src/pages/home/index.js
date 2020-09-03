@@ -3,8 +3,10 @@ import axios from 'axios';
 
 import * as S from './styled';
 
+import {useHistory} from 'react-router-dom';
 
 function App(props) {
+  const history = useHistory();
   const [user, setUser] = useState ('');
 
   // Consumindo dados com Axios
@@ -16,7 +18,8 @@ function App(props) {
       repositories.map((repository) => {
         repositoriesName.push(repository.name)
       });
-      localStorage.setItem('repositories', JSON.stringify(repositoriesName));
+      localStorage.setItem('repositoriesName', JSON.stringify(repositoriesName));
+      history.push('/Repositors');
       // console.log(repositoriesName);
     });
   }
