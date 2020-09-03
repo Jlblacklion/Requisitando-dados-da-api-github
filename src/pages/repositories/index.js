@@ -3,6 +3,8 @@ import React, {useEffect, useState} from 'react';
 import * as S from './styled';
 
 
+
+
 function Repositors(){
     const [ repositories, setRepositories ] = useState([]);
 
@@ -10,7 +12,7 @@ function Repositors(){
         let repositoriesNanme = localStorage.getItem('repositoriesName');
         repositoriesNanme = JSON.parse(repositoriesNanme);
         setRepositories(repositoriesNanme);
-        localStorage.clear();
+        // localStorage.clear();
     }, []);
 
     return (
@@ -23,6 +25,7 @@ function Repositors(){
                     )
                 })}
             </S.List>
+            <S.LinkHome to="/"> Back </S.LinkHome>
         </S.Container>
     )
 }
